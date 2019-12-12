@@ -11,39 +11,23 @@ const Bar = { template: '<div>bar</div>' }
 // またはコンポーネントオプションのオブジェクトでも構いません。
 // ネストされたルートに関しては後で説明します
 const routes = [
-  { path: '/foo', component: Foo },
-  { path: '/bar', component: Bar }
+	{ path: '/foo', component: Foo },
+	{ path: '/bar', component: Bar }
 ]
 
 // 3. ルーターインスタンスを作成して、ルートオプションを渡します
 // 追加のオプションをここで指定できますが、
 // この例ではシンプルにしましょう
 const router = new VueRouter({
-  routes // `routes: routes` の短縮表記
+	routes // `routes: routes` の短縮表記
 })
 
 // 4. root となるインスタンスを作成してマウントします
 // アプリケーション全体がルーターを認知できるように、
 // ルーターをインジェクトすることを忘れないでください。
 const app = new Vue({
-  router
+	router
 }).$mount('#app')
 
 // これで開始です!
 
-// Home.vue
-export default {
-  computed: {
-    username () {
-      // `params` が表示される
-      return this.$route.params.username
-    }
-  },
-  methods: {
-    goBack () {
-      window.history.length > 1
-        ? this.$router.go(-1)
-        : this.$router.push('/')
-    }
-  }
-}
